@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script >
+        $(function () {
+
+        });
+    </script>
+</head>
+<body>
+<h1><%= title %></h1>
+<% if (typeof(animal) !== 'undefined') {%>
+<div class="insert">
+    <fieldset>
+        <legend>Update Animal Info</legend>
+        <form action="/update/<%= animal.id%>" method="post">
+            <label>Name: </label><br>
+            <input type="text" name="name" value="<%= animal.name %>">
+            <br><br>
+            <label>Description: </label><br>
+            <input type="text" name="desc" value="<%= animal.description %>">
+            <br><br>
+            <input type="submit" name="btn" class="btn" id="btn" value="Update">
+            <button class="btn right" id="btn"><a href="/">Home</a></button>
+        </form>
+        <br>
+    </fieldset>
+</div>
+<% }%>
+
+</body>
+</html>

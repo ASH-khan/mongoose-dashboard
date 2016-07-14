@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script >
+        $(function () {
+
+        });
+    </script>
+</head>
+<body>
+<h1><%= title %></h1>
+<div>
+    <button class="btn" id="btn">
+        <a href="/mongoose/new">Insert new Mongoose Animal into DB</a>
+    </button>
+    <form action="/mongoose/destroy-all" method="post">
+        <input type="submit" name="btn" class="btn" id="" value="Delete All">
+    </form>
+</div>
+<br><br>
+
+<div class="container">
+    <h1>Show All Mongoose Animals</h1>
+    <% if (typeof(animals) !== 'undefined') {%>
+    <ul>
+        <% for(var animal in animals) {%>
+        <li>Animal Id: <%= animals[animal].id%></li>
+        <li>Animal Name: <%= animals[animal].name%></li>
+        <li>Animal Description: <%= animals[animal].description%></li>
+        <br><br>
+        <form action="/mongoose/<%= animals[animal].id%>/edit" method="post">
+            <input type="submit" name="btn" class="btn" id="<%= animals[animal].id%>" value="Edit">
+        </form>
+        <form action="/mongoose/<%= animals[animal].id%>" method="get">
+            <input type="submit" name="btn" class="btn" id="<%= animals[animal].id%>" value="Show One">
+        </form>
+        <form action="/mongoose/<%= animals[animal].id%>/destroy" method="post">
+            <input type="submit" name="btn" class="btn" id="<%= animals[animal].id%>" value="Delete">
+        </form>
+
+        <hr>
+        <% }%>
+    </ul>
+    <% }%>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script >
+        $(function () {
+
+        });
+    </script>
+</head>
+<body>
+<h1><%= title %></h1>
+    <div class="insert">
+        <fieldset>
+            <legend>Insert Data</legend>
+            <form action="/insert" method="post">
+
+                <label>Name: </label><br>
+                <input type="text" name="name" placeholder="Enter your name please">
+                <br><br>
+                <label>Description: </label><br>
+                <input type="text" name="desc"> <br><br>
+                <input type="submit" name="btn" class="btn" id="btn" value="Insert">
+                <button class="btn right" id="btn"><a href="/">Home</a></button>
+            </form>
+            <br>
+        </fieldset>
+    </div>
+
+</body>
+</html>

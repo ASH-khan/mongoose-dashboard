@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script >
+        $(function () {
+
+        });
+    </script>
+</head>
+<body>
+<h1><%= title %></h1>
+
+<div class="container">
+    <h1>Show All Mongoose Animals</h1>
+    <% if (typeof(animal) !== 'undefined') {%>
+    <ul>
+        <li>Animal Id: <%= animal.id%></li>
+        <li>Animal Name: <%= animal.name%></li>
+        <li>Animal Description: <%= animal.description%></li>
+        <br><br>
+        <form action="/mongoose/<%= animal.id%>/edit" method="post">
+            <input type="submit" name="btn" class="btn" id="<%= animal.id%>" value="Edit">
+        </form>
+        <form action="/mongose/<%=animal.id%>/destroy" method="post">
+            <input type="submit" name="btn" class="btn" id="<" value="Delete">
+        </form>
+        <button class="btn" id="btn"><a href="/">Home Page</a></button>
+        <hr>
+    </ul>
+    <% }%>
+</div>
+
+</body>
+</html>
